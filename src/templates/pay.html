@@ -1,0 +1,61 @@
+<div class="scrollable" ng-controller="PayController">
+
+    <toaster-container  toaster-options="{'time-out': 2000,'animation-class': 'toast-bottom-center','position-class': 'toast-bottom-center'}"></toaster-container>
+
+    <div class="row" style="text-align: center;padding-bottom: 25px;padding-top: 25px;">
+        <div class="row">
+            <img src="images/logo.png" style="width: 80px;height: 80px;">
+        </div>
+        <div class="row" style="margin-top: 5px;">
+            <span>向我支付</span>
+        </div>
+    </div>
+
+    <div class="row" style="margin-left: 12px;margin-right: 12px;background-color: #FFFFFF;">
+        <div class="row">
+            <ul class="list-group" style="padding:0px;margin-bottom: 10px;">
+                <li class="list-group-item">
+                    支付方式
+                </li>
+                <li class="list-group-item" style="border-bottom: 0px;" ng-click="selectPayType(1);">
+                    <input type="radio" id="radio-1" name="pay_type" ng-model="pay.type" value="1"
+                           style="margin-top: 0px;" ng-checked="pay.type != 2">
+                    <img src="images/weixin.png" style="width: 30px;height: 30px;margin-right: 5px;margin-left: 5px; ">微信支付
+                </li>
+                <li class="list-group-item" style="border-bottom: 0px;" ng-click="selectPayType(2);">
+                    <input type="radio" id="radio-2" name="pay_type" ng-model="pay.type" value="2"
+                           style="margin-top: 0px;" ng-checked="pay.type == 2">
+                    <img src="images/zhifubao.jpg" style="width: 30px;height: 30px;margin-right: 5px;margin-left: 5px;">支付宝支付
+                </li>
+            </ul>
+        </div>
+
+        <div style="height: 6px;background-color: #EDEDED;"></div>
+
+        <div class="row">
+            <ul class="list-group" style="padding:0px;margin-bottom: 0px;">
+                <li class="list-group-item">
+                    支付金额
+                </li>
+                <li class="list-group-item" style="border-bottom: 0px;" ng-click="selectPayMethod(1);">
+                    <div class="input-group">
+                        <span class="input-group-addon zsg-font-size-3" style="border: 0px;">¥</span>
+                        <input type="number" class="form-control" style="border: 0px;" placeholder="请输入金额"
+                               ng-model="pay.count" name="count" aria-describedby="basic-addon1" required>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row" style="margin-left: 12px;margin-right: 12px;margin-top: 25px;color:#FFFFFF;">
+        <button ng-disabled="dataLoading" ng-click="pay();" class="btn"
+                style="width:100%;height: 50px;border-radius: 0px;border:0px;background-color: #47B34F;">
+            <div ng-if="!dataLoading">支付</div>
+            <img ng-if="dataLoading"
+                 src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+        </button>
+    </div>
+
+
+</div>
